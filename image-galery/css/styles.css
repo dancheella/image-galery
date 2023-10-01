@@ -156,6 +156,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.5s linear;
+  color: black;
 }
 
 .header__search-clear:hover {
