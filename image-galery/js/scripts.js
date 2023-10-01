@@ -1,61 +1,56 @@
-async function fetchImages(apiQuery) {
-  const MY_ID = 'GLBIlelbHI8Lv8IbtMlcmJsxY6_GIa3BM95CjGdc708';
-  const url = `https://api.unsplash.com/photos/random?client_id=${MY_ID}&count=30&query=${apiQuery}`;
+document.addEventListener("DOMContentLoaded", () => {
+  const MY_ID = '7mnvKSFxX6NkopngV6z1ujnFjDMXwggj82cm9zmTv0k';
+  const url = `https://api.unsplash.com/photos/random?client_id=${MY_ID}&count=30`;
 
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (res.ok && data.length) {
-      return data;
-    }
-  } catch (err) {
-    alert('Токен сломался или запрос неверный!');
-  }
-  return [];
-}
-
-function displayImages(imagesData) {
   const imagesItem = document.getElementById('images__item');
-  imagesItem.innerHTML = imagesData.map(({urls: {regular}}) => {
-    return `<img class="images__item-img" src="${regular}" alt="Random photo">`;
-  }).join("");
-}
-
-function generateRandomQuery() {
-  const keywords = ['nature', 'animals', 'food'];
-  const randomIndex = Math.floor(Math.random() * keywords.length);
-  return keywords[randomIndex];
-}
-
-// Обработчик события при загрузке страницы
-document.addEventListener("DOMContentLoaded", async () => {
-  const randomQuery = generateRandomQuery();
-  const imagesData = await fetchImages(randomQuery);
-  displayImages(imagesData);
-
   const searchForm = document.querySelector('.header__search');
   const searchInput = document.querySelector('.header__search-input');
   const clearButton = document.querySelector('.header__search-clear');
   const searchButton = document.querySelector('.header__search-btn');
 
-  // Обработчик события для формы поиска
+  let array = [];
+
+  const getData = async (searchQuery) => {
+    try {
+      const apiUrl = searchQuery ? `${url}&query=${searchQuery}` : url;
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+
+      if (res.ok && data.length) {
+        array = data;
+        setImages();
+        return data;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getData();
+
+  const inputImageItem = () => {
+    return array.map(({ urls: { small_s3 } }) => {
+      return `<div class="images__item">
+                <div class="images__item-img" style="background-image: url(${small_s3})"></div>
+              </div>`;
+    }).join("");
+  };
+
+  const setImages = () => {
+    imagesItem.innerHTML = inputImageItem();
+  };
+
+  const handleSearch = async () => {
+    const searchQuery = searchInput.value.trim();
+    if (searchQuery !== '') {
+      await getData(searchQuery);
+    }
+  };
+
   searchForm.addEventListener('submit', async function (event) {
     event.preventDefault();
-    const searchQuery = searchInput.value.trim();
-    if (searchQuery !== '') {
-      const imagesData = await fetchImages(searchQuery);
-      displayImages(imagesData);
-    }
+    await handleSearch();
   });
-
-  async function handleSearch() {
-    const searchQuery = searchInput.value.trim();
-    if (searchQuery !== '') {
-      const imagesData = await fetchImages(searchQuery);
-      displayImages(imagesData);
-    }
-  }
 
   // для кнопки поиска
   searchButton.addEventListener('click', async function () {

@@ -1,0 +1,27 @@
+@media screen and (max-width: 600px) {
+  .header__container {
+    justify-content: center;
+  }
+
+  .header__search-input:hover ~ .drip-2 {
+    height: 20px;
+  }
+
+  .header__search-input:hover ~ .drip-4 {
+    height: 40px;
+  }
+
+  .footer__github img {
+    width: 40px;
+    height: 38px;
+  }
+
+  .footer__year {
+    font-size: 20px;
+  }
+
+  .footer__rss img {
+    width: 90px;
+    height: 48px;
+  }
+}
