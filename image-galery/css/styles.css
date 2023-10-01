@@ -58,7 +58,7 @@
 
 .header__search-input {
   position: relative;
-  padding: 5px 70px 5px 10px;
+  padding: 15px 70px 15px 10px;
   border: 2px solid rgba(0, 0, 0);
   border-radius: 10px;
   font-size: 16px;
@@ -129,13 +129,14 @@
 
 .header__search-btn {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   border: 2px solid rgba(0, 0, 0);
   background: linear-gradient(to bottom, #8BC34A, #4CAF50);
   position: absolute;
-  right: -3px;
-  top: -3px;
+  width: 65px;
+  height: 65px;
+  right: -10px;
+  top: -5px;
+  font-size: 30px;
   cursor: pointer;
   transition: all 0.5s linear;
 }
@@ -149,9 +150,9 @@
 .header__search-clear {
   display: flex;
   position: absolute;
-  top: 1px;
-  right: 44px;
-  font-size: 26px;
+  top: 3px;
+  right: 56px;
+  font-size: 40px;
   background: transparent;
   border: none;
   cursor: pointer;
