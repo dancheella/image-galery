@@ -4,12 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Galery</title>
-  <link rel="icon" href="images/favicon.png">
+  <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/adaptive.css">
 </head>
 <body>
 
+<main>
+  <header class="header">
+    <div class="header__container container">
+      <h1 class="header__title">
+        <img src="assets/images/main.png" alt="Main Image">
+        Image Galery
+      </h1>
+      <div class="header__search">
+        <input class="header__search-input" type="text" placeholder="Search..." autofocus autocomplete="off">
+        <div class="drip-1"></div>
+        <div class="drip-2"></div>
+        <div class="drip-3"></div>
+        <button type="submit" class="header__search-btn">
+          <span>&#128269;</span>
+        </button>
+        <button type="reset" class="header__search-clear">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="images">
+    <div class="images__container container">
+      <div class="images__item" id="images__item"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a href="https://github.com/dancheella" target="_blank" class="footer__github"><img src="assets/images/svg/github.svg"
+                                                                                      alt="GitHub"></a>
+  <span class="footer__year"></span>
+  <a href="https://rs.school/" target="_blank" class="footer__rss"><img src="assets/images/svg/rss.svg" alt="RSS"></a>
+</footer>
 
 <script src="js/scripts.js"></script>
 </body>
