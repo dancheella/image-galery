@@ -24,11 +24,9 @@
   }
 
   .header__search-clear {
-    position: absolute;
-    top: -2px;
-    right: 59px;
-    font-size: 50px;
-
+    top: 3px;
+    right: 56px;
+    font-size: 40px;
   }
 
   .footer__github img {
