@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const MY_ID = '7mnvKSFxX6NkopngV6z1ujnFjDMXwggj82cm9zmTv0k';
+  const MY_ID = 'NsQLHwviPP-8ud0MLQo1zpc3p676iOriY1yz4_8xZ6A';
   const url = `https://api.unsplash.com/photos/random?client_id=${MY_ID}&count=30`;
 
   const imagesItem = document.getElementById('images__item');
@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.ok && data.length) {
         array = data;
         setImages();
-        return data;
+      } else {
+        imagesItem.innerHTML = `<h1 class="images__title">Oops! Nothing found</h1>`;
       }
     } catch (err) {
       console.log(err);
@@ -66,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   clearButton.addEventListener('click', function () {
     searchInput.value = '';
-    searchInput.placeholder = 'Search...';
   });
 });
 

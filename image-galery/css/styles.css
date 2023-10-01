@@ -45,6 +45,11 @@
 
 .header__title img {
   max-width: 48px;
+  filter: drop-shadow(0 0 5px #c1ff00);
+}
+
+.header__title span {
+  filter: drop-shadow(0 0 5px #06c0c0);
 }
 
 .header__search {
@@ -166,15 +171,28 @@
 .images__container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 10px;
   min-height: 100vh;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  background: #63c267;
+  box-shadow: 0 0 10px #090909;
+}
+
+.images__title {
+  font-size: 40px;
+  font-family: Snug-FREE, sans-serif;
+  letter-spacing: 3px;
+  text-align: center;
+  filter: drop-shadow(0 0 10px #06C0C0FF);
 }
 
 .images__item {
   width: 400px;
   height: 400px;
+  margin: 20px 10px;
 }
 
 .images__item-img {

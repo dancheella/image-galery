@@ -3,12 +3,31 @@
     justify-content: center;
   }
 
+  .header__search-input {
+    padding: 15px 70px 15px 10px;
+  }
+
   .header__search-input:hover ~ .drip-2 {
     height: 20px;
   }
 
   .header__search-input:hover ~ .drip-4 {
     height: 40px;
+  }
+
+  .header__search-btn {
+    width: 65px;
+    height: 65px;
+    right: -10px;
+    top: -5px;
+    font-size: 30px;
+  }
+
+  .header__search-clear {
+    top: -2px;
+    right: 59px;
+    font-size: 50px;
+
   }
 
   .footer__github img {
