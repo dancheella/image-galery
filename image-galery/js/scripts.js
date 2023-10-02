@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (res.ok && data.length) {
         array = data;
+        console.log(data)
         setImages();
       } else {
         imagesItem.innerHTML = `<h1 class="images__title">Oops! Nothing found</h1>`;
@@ -30,9 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
   getData();
 
   const inputImageItem = () => {
-    return array.map(({ urls: { small_s3 } }) => {
+    return array.map(({ urls: { small_s3 }, user: { name, profile_image: { small }, location} }) => {
       return `<div class="images__item">
                 <div class="images__item-img" style="background-image: url(${small_s3})"></div>
+                <div class="images__item-info">
+                  <div class="images__item-info__img-author" style="background-image: url(${small})"></div>
+                  <div class="images__item-info__description">
+                    <div class="images__item-info__description-title">${name}</div>
+                    <div class="images__item-info__description-location">
+                      <img src=" assets/images/location.png" alt="Location">
+                      <span>${location}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="images__item-blackout"></div>
               </div>`;
     }).join("");
   };

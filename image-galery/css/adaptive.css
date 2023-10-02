@@ -25,3 +25,18 @@
     height: 48px;
   }
 }
+
+@media screen and (max-width: 425px) {
+
+  .images__item-info__description {
+    width: 180px;
+  }
+
+  .images__item-info__description-title {
+    font-size: 14px;
+  }
+
+  .images__item-info__description-location {
+    font-size: 12px;
+  }
+}
