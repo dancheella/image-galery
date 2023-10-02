@@ -53,6 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
     imagesItem.innerHTML = inputImageItem();
   };
 
+  imagesItem.addEventListener("touchstart", function (event) {
+    const target = event.target;
+    if (target.classList.contains("images__item-img")) {
+      const parentItem = target.closest(".images__item");
+      parentItem.classList.add("active");
+    }
+  });
+
+  imagesItem.addEventListener("touchend", function (event) {
+    const target = event.target;
+    if (target.classList.contains("images__item-img")) {
+      const parentItem = target.closest(".images__item");
+      parentItem.classList.remove("active");
+    }
+  });
+
   const handleSearch = async () => {
     const searchQuery = searchInput.value.trim();
     if (searchQuery !== '') {

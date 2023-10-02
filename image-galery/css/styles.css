@@ -274,7 +274,9 @@
 }
 
 .images__item:hover .images__item-blackout,
-.images__item:hover .images__item-info {
+.images__item:hover .images__item-info,
+.images__item.active .images__item-blackout,
+.images__item.active .images__item-info{
   opacity: 1;
   transition: opacity 0.5s linear;
 }
